@@ -26,7 +26,7 @@ io.on("connection", (socket) => {
 });
 
 app.get('/request/room', (req: any, res: any) => {
-  const roomNumber = "some room";
+  const roomNumber = Math.random().toString(36);
   io.on("connection", socket => {
     socket.join(roomNumber);
   });
@@ -35,7 +35,7 @@ app.get('/request/room', (req: any, res: any) => {
   return res.end();
 })
 
-app.get('/join/room', (req: any, res: any) => {
+app.get('/join/room/:roomNumber', (req: any, res: any) => {
   const roomNumber = req.query.roomNumber;
   io.on("connection", socket => {
     socket.join(roomNumber);
