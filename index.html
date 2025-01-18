@@ -7,13 +7,20 @@
   </head>
   <body>
     <h1>Socket.io Reconnection Example</h1>
-    <input type="text" id="message" />
-    <button id="button">button</button>
+    <div>
+      <button id="create-room">create room</button>
+    </div>
+    <div>
+      <input type="text" id="room-code" placeholder="enter room code..." />
+      <button id="join-room">join room</button>
+    </div>
+    <div>
+      <input type="text" id="message" placeholder="enter message..." />
+      <button id="button">send message</button>
+    </div>
     <div id="messages"></div>
-    
+
     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
-    <script type="module" src="index.js">
-          
-    </script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>

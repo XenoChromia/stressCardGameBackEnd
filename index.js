@@ -1,4 +1,4 @@
-const socket = io("http://localhost:510334", {
+const socket = io("74.176.208.12:8192", {
   reconnection: true,
   reconnectionAttempts: 5,
   reconnectionDelay: 1000, // Initial delay between attempts (default: 1000 ms)
@@ -6,9 +6,13 @@ const socket = io("http://localhost:510334", {
   timeout: 20000, // Timeout for connection attempt (default: 20000 ms)
 });
 
-let message = document.getElementById('message');
-let button = document.getElementById('button');
-let messages = document.getElementById('messages');
+let message = document.getElementById("message");
+let button = document.getElementById("button");
+let messages = document.getElementById("messages");
+
+let joinRoom = document.getElementById("join-room");
+let createRoom = document.getElementById("create-room");
+let roomCode = document.getElementById("room-code");
 
 socket.on("connect", () => {
   console.log("Connected to server!");
@@ -37,13 +41,12 @@ socket.on("receiveMsg", (msg) => {
   console.log(msg);
   messages.innerHTML += `
     <p>${msg}</p>
-  `
+  `;
 });
-
 
 function sendMsg() {
   console.log(message.value);
-  socket.emit('sendMsg', message.value);
+  socket.emit("sendMsg", message.value);
 }
 
-button.addEventListener('click', sendMsg);
+button.addEventListener("click", sendMsg);
