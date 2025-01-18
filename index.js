@@ -1,4 +1,12 @@
-const socket = io("74.176.208.12:8192", {
+// const socket = io("74.176.208.12:8192", {
+//   reconnection: true,
+//   reconnectionAttempts: 5,
+//   reconnectionDelay: 1000, // Initial delay between attempts (default: 1000 ms)
+//   reconnectionDelayMax: 5000, // Maximum delay (default: 5000 ms)
+//   timeout: 20000, // Timeout for connection attempt (default: 20000 ms)
+// });
+
+const socket = io("localhost:8192", {
   reconnection: true,
   reconnectionAttempts: 5,
   reconnectionDelay: 1000, // Initial delay between attempts (default: 1000 ms)
